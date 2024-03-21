@@ -41,8 +41,6 @@ public class RegisterLoginController {
 //        this.userService = userService;
 //    }
 
-    //Simple comment
-
     @PostMapping("/login/")
     public ResponseEntity<String> login(@RequestBody LoginDTO loginDTO) {
         Authentication authentication = authenticationManager.authenticate(

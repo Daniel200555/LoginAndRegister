@@ -45,17 +45,12 @@ public class RegisterLoginController {
     @Autowired
     private KafkaService kafkaService;
 
-//    public RegisterController(UserServiceImpl userService) {
-//        this.userService = userService;
-//    }
-
     @PostMapping("/login/")
     public ResponseEntity<String> login(@RequestBody LoginDTO loginDTO) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginDTO.getNickname(), loginDTO.getPassword())
         );
         SecurityContextHolder.getContext().setAuthentication(authentication);
-//        return new ResponseEntity<>("User Login Successfully!!!!!!!!", HttpStatus.OK);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -64,6 +59,7 @@ public class RegisterLoginController {
         LOGGER.info(String.format("[%d]: User registered with nickname -> %s", System.currentTimeMillis(), registerDTO.getNickname()));
         userService.createUser(registerDTO);
         kafkaService.sendMessage(registerDTO.getNickname());
+        kafkaService.sendDatabase(registerDTO.getNickname());
         return new ResponseEntity(HttpStatus.OK);
     }
 

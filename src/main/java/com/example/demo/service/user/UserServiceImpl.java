@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
         create.setPassword(passwordEncoder.encode(registerDTO.getPassword()));
         userRepository.save(create);
         LOGGER.info("User with nickname: " + registerDTO.getNickname() + ", saved");
-        createDirectory.create(registerDTO.getNickname());
+
         return create;
     }
 

@@ -19,4 +19,9 @@ public class KafkaService {
         kafkaTemplate.send("createuser", message);
     }
 
+    public void sendDatabase(String message) {
+        LOGGER.info(String.format("Message sent -> %s", message));
+        kafkaTemplate.send("databaseuser", message);
+    }
+
 }

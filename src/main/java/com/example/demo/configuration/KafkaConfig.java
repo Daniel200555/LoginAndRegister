@@ -13,4 +13,9 @@ public class KafkaConfig {
         return TopicBuilder.name("createuser").build();
     }
 
+    @Bean
+    public NewTopic databaseUser() {
+        return TopicBuilder.name("databaseuser").build();
+    }
+
 }

@@ -59,6 +59,8 @@ Diagram of microservice:
 	end
 	id13[MongoFileMicroservice]
 	id14[FileFtpMicroservice]
+	id15[Prometheus]
+	id16[Grafana]
 	Register --> id8
 	id8 --> PostgreSQL
 	id8 --> id6
@@ -67,4 +69,6 @@ Diagram of microservice:
 	id7 --> id14
 	Login --> id9
 	id9 -- Check if User exist and if password right --> PostgreSQL
+	PostgreSQL -.-> id15
+	id16 -.-> id16
 ```

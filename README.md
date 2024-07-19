@@ -62,7 +62,7 @@ Diagram of microservice:
 	Register --> id8
 	id8 --> PostgreSQL
 	id8 --> id6
-	id9 --> id7
+	id8 --> id7
 	id6 --> id13
 	id7 --> id14
 	Login --> id9

@@ -70,5 +70,5 @@ Diagram of microservice:
 	Login --> id9
 	id9 -- Check if User exist and if password right --> PostgreSQL
 	PostgreSQL -.-> id15
-	id16 -.-> id16
+	id15 -.-> id16
 ```
